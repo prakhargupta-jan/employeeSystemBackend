@@ -1,7 +1,4 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require('bcrypt');
-const crypto = require('crypto')
 
 const UserSchema = mongoose.Schema({
 	name: {
@@ -42,7 +39,13 @@ const UserSchema = mongoose.Schema({
 		type: String,
 		enum: ['employee', 'admin'],
 		required: true
-	}
+	},
+    tasks : [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Task'
+        }
+    ]
 });
 
 
